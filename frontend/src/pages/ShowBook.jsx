@@ -12,7 +12,7 @@ const ShowBook = () => {
   const { id } = useParams();
   useEffect(()=>{
     setLoading(true);
-    axios.get(`http://localhost:5555/books/${id}`)
+    axios.get(`/books/${id}`)
     .then((response)=>{
       setBook(response.data);
       setLoading(false);
