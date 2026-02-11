@@ -29,7 +29,20 @@ app.use("/books", booksRoute);
 // });
 
 
-mongoose.connect(mongoDBURL)
+// For local running
+// mongoose.connect(mongoDBURL)
+// .then(()=>{
+//     console.log("App connected to DB");
+//     app.listen(PORT, ()=>{
+//         console.log(`App is listening on port : ${PORT}`);
+//     });
+// })
+// .catch((error)=>{
+//     console.log(error);
+// });
+
+// For Render deployment
+mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
     console.log("App connected to DB");
     app.listen(PORT, ()=>{
