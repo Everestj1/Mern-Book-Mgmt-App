@@ -1,5 +1,5 @@
 import express, { response } from "express";
-import { PORT, mongoDBURL } from "./config.js";
+// import { PORT, mongoDBURL } from "./config.js";
 import mongoose from "mongoose";
 import booksRoute from './routes/booksRoute.js'
 import cors from 'cors';
@@ -42,6 +42,7 @@ app.use("/books", booksRoute);
 // });
 
 // For Render deployment
+const PORT = process.env.PORT || 5555
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
     console.log("App connected to DB");
